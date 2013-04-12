@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DEMO</title>
+</head>
+<body>
+
+	<ul>
+		<li><a href="#/foo">foo</a></li>
+		<li><a href="#/bar">bar</a></li>
+		<li><a href="#/baz">baz</a></li>
+	</ul>
+
+	<pre id="log"></pre>
+
+	<script src="../components/jquery/jquery.min.js"></script>
+	<script src="../src/hashchange.js"></script>
+	<script>
+
+	$(window).on("hashchange", function(){
+		$("#log").append(location.hash + "\n");
+	});
+
+	</script>
+	
+</body>
+</html>
