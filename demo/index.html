@@ -12,14 +12,34 @@
 		<li><a href="#/baz">baz</a></li>
 	</ul>
 
+	<button id="button-set" value="foobar">Set foobar</button>
+	<button id="button-get" value="foobar">Get</button>
+
 	<pre id="log"></pre>
 
 	<script src="../components/jquery/jquery.min.js"></script>
 	<script src="../src/hashchange.js"></script>
 	<script>
 
+
 	$(window).on("hashchange", function(){
 		$("#log").append(location.hash + "\n");
+	});
+
+	$.hashChange.filter("set", function(hash){
+		return "/" + hash;
+	});
+
+	$.hashChange.filter("get", function(hash){
+		return hash.replace(/^#/, "");
+	});
+
+	$("#button-set").on("click", function(){
+		$.hashChange.set("foobar");
+	});
+
+	$("#button-get").on("click", function(){
+		alert($.hashChange.get());
 	});
 
 	</script>

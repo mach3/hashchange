@@ -54,6 +54,43 @@ Forcely fire hashchange event.
 $.hashChange.trigger();
 ```
 
+### set(hash:String)
+
+Set new hash
+
+```javascript
+$.hashChange.set("foo");
+```
+
+### get()
+
+Get curent hash
+
+```javascript
+$.hashChange.get() // return current location.hash
+```
+
+### filter(name:String, callback:Function)
+
+Set filter function for set() / get()
+
+```javascript
+$.hashChange.filter("set", function(hash){
+	return "/" + hash;
+});
+
+$.hashChange.set("foo"); // => location.hash will be set as "/foo"
+```
+
+
+```javascript
+$.hashChange.filter("get", function(hash){
+	return hash.replace(/^#\//, "");
+});
+
+$.hashChange.set("/hoge");
+$.hashChange.get(); // => "hoge"
+```
 
 ---
 
